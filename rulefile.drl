@@ -1,0 +1,12 @@
+import manojsingh.BussinessTransaction;
+
+dialect "java"
+rule "file based rule"
+
+when
+$fact : BussinessTransaction()
+item : BussinessTransaction($fact.getFact("drool")=="brms")
+
+then
+item.addResult("Rule","Engine");
+end
